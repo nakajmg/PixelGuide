@@ -1,0 +1,121 @@
+.pxg-btn:before, .pxg-btn:after, .dialog button.del-btn:before, .open-dialog .wrapper:before {
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle; }
+
+.pxg-btn {
+  line-height: 25px;
+  padding: 0 5px;
+  font-size: 12px;
+  display: inline-block;
+  text-align: center;
+  color: #333333;
+  border: 1px solid #333333;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+  cursor: pointer; }
+  .pxg-btn:hover {
+    color: crimson;
+    border-color: crimson; }
+  .pxg-btn:active {
+    box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2); }
+  .pxg-btn:before, .pxg-btn:after {
+    font-size: 18px;
+    border: none; }
+
+.guide.h, .guide.v {
+  border-color: crimson; }
+
+.pg-color-red .guide.h, .pg-color-red .guide.v {
+  border-color: crimson; }
+.pg-color-blue .guide.h, .pg-color-blue .guide.v {
+  border-color: dodgerblue; }
+.pg-color-green .guide.h, .pg-color-green .guide.v {
+  border-color: forestgreen; }
+.pg-color-yellow .guide.h, .pg-color-yellow .guide.v {
+  border-color: gold; }
+.pg-color-purple .guide.h, .pg-color-purple .guide.v {
+  border-color: purple; }
+.pg-color-orange .guide.h, .pg-color-orange .guide.v {
+  border-color: darkorange; }
+.pg-color-white .guide.h, .pg-color-white .guide.v {
+  border-color: white; }
+.pg-color-black .guide.h, .pg-color-black .guide.v {
+  border-color: #333333; }
+
+.rg-menu a {
+  background-color: #F9F9F9;
+  color: #555; }
+  .rg-menu a:link {
+    color: #DC143C; }
+  .rg-menu a:hover, .rg-menu a.selected {
+    color: #DC143C;
+    background-color: #F0F0F0; }
+  .rg-menu a.disabled {
+    color: #BBB; }
+
+.dialog {
+  background-color: #F9F9F9;
+  color: #555;
+  border: 1px solid #888;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  text-align: center; }
+  .dialog button {
+    text-align: center;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    vertical-align: middle;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid #333333;
+    box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+    background-color: transparent; }
+    .dialog button:hover {
+      color: crimson;
+      border-color: crimson; }
+    .dialog button:active {
+      box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.2); }
+    .dialog button.del-btn:before {
+      content: "\f014";
+      font-size: 18px; }
+    .dialog button.ok-btn, .dialog button.cancel-btn {
+      margin: 5px 5px 15px 0; }
+  .dialog .title-bar {
+    background-color: #333;
+    color: #F9F9F9; }
+
+.open-dialog select {
+  -webkit-appearance: none;
+  width: 140px;
+  line-height: 23px;
+  background-color: transparent;
+  color: #555;
+  border-radius: 0;
+  text-align: right;
+  direction: rtl;
+  padding-right: 10px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  border: 1px solid;
+  position: relative;
+  cursor: pointer; }
+.open-dialog .wrapper {
+  position: relative; }
+.open-dialog .wrapper:before {
+  position: absolute;
+  content: "\f13a";
+  display: block;
+  width: 23px;
+  line-height: 23px;
+  left: 8px;
+  top: 13px;
+  border-right: 1px solid #6b6b6b;
+  z-index: 0;
+  text-align: center;
+  font-size: 20px;
+  padding-left: 3px; }

@@ -1,0 +1,171 @@
+$color-red: #DC143C;
+$color-green: #228B22;
+$color-blue: #1E90FF;
+$color-yellow: #FFD700;
+$color-purple: #800080;
+$color-orange: #FF8C00;
+$color-white: #FFF;
+$color-black: #333;
+%fa{
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
+}
+%fontello{
+  font-family: "fontello";
+}
+
+.pxg-btn{
+  line-height: 25px;
+  padding: 0 5px;
+  font-size: 12px;
+  display: inline-block;
+  text-align: center;
+  color: $color-black;
+  border: 1px solid $color-black;
+  box-shadow: 1px 1px 0 rgba(0,0,0,.1);
+  cursor: pointer;
+  &:hover{
+    color: $color-red;
+    border-color: $color-red;
+  }
+  &:active{
+    box-shadow: inset 1px 1px 2px rgba(0,0,0,.2);
+    &:before, &:after{
+      // font-size: 17px;
+    }
+  }
+  &:before,&:after{
+  font-size: 18px;
+    @extend %fa;
+    border:none;
+    // content: "\f040";
+    // width: 25px;
+  }
+}
+
+
+.guide.h, .guide.v{
+  border-color: $color-red;
+}
+.guide.h, .guide.v{
+  .pg-color-red &{ border-color: $color-red; }
+  .pg-color-blue &{ border-color: $color-blue; }
+  .pg-color-green &{ border-color: $color-green; }
+  .pg-color-yellow &{ border-color: $color-yellow; }
+  .pg-color-purple &{ border-color: $color-purple; }
+  .pg-color-orange &{ border-color: $color-orange; }
+  .pg-color-white &{ border-color: $color-white; }
+  .pg-color-black &{ border-color: $color-black; }
+}
+
+.rg-menu a{
+  background-color: #F9F9F9;
+  color: #555;
+  &:link{
+    color: #DC143C;
+  }
+  &:hover,&.selected{
+    color: #DC143C;
+    background-color: #F0F0F0;
+  }
+  &.disabled{
+    color: #BBB;
+  }
+}
+
+.dialog{
+  background-color: #F9F9F9;
+  color: #555;
+  border: 1px solid #888;
+  box-shadow: 1px 1px 1px rgba(0,0,0,.1);
+  text-align: center;
+
+
+  button{
+    text-align: center;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 0 rgba(0,0,0,.1);
+    cursor: pointer;
+    vertical-align: middle;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    text-shadow: -1px -1px 0 rgba(0,0,0,.1);
+    border: 1px solid $color-black;
+    box-shadow: 1px 1px 0 rgba(0,0,0,.1);
+    background-color: transparent;
+    // border-radius: 2px;
+
+    &:hover{
+      color: $color-red;
+      border-color: $color-red;
+    }
+    &:active{
+      box-shadow: inset 1px 1px 2px rgba(0,0,0,.2);
+      &:before, &:after{
+        // font-size: 17px;
+      }
+    }
+
+    &.del-btn{
+      &:before{
+        @extend %fa;
+        content: "\f014";
+        font-size: 18px;
+      }
+    }
+
+    &.ok-btn, &.cancel-btn{
+      margin: 5px 5px 15px 0;
+    }
+
+  }
+
+
+  .title-bar{
+    background-color: #333;
+    color: #F9F9F9;
+  }
+}
+.open-dialog{
+  select{
+    -webkit-appearance: none;
+    width: 140px;
+    line-height: 23px;
+    background-color: transparent;
+    color: #555;
+    border-radius: 0;
+    text-align: right;
+    direction: rtl;
+    padding-right: 10px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border: 1px solid;
+    position: relative;
+    cursor: pointer;
+
+    // border-right: 3px solid #333;
+  }
+  .wrapper{
+    position: relative;
+  }
+  .wrapper:before{
+    @extend %fa;
+    position: absolute;
+    content: "\f13a";
+    display: block;
+    width: 23px;
+    line-height: 23px;
+    left: 8px;
+    top: 13px;
+    border-right: 1px solid rgba(107, 107, 107, 1);
+    z-index: 0;
+    text-align: center;
+    font-size: 20px;
+    padding-left: 3px;
+  }
+}

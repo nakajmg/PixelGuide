@@ -1,0 +1,26 @@
+{
+  "manifest_version": 2,
+  "name": "PixelGuide",
+  "description": "adding guide line ",
+  "version": "0.1",
+
+  // "permissions": [
+  //   "tabs", "http://*/*", "https://*/*"
+  // ],
+
+  "content_scripts": [
+    {
+      "js": ["js/lib/jquery-1.11.0.min.js","js/lib/jquery.ba-throttle-debounce.min.js", "js/lib/Event.js", "js/lib/Dragdrop.js", "js/lib/RulersGuides.js",  "js/content.js"],
+      "css": ["css/rulersguides.css", "css/content.css"],
+      "matches": ["\u003Call_urls\u003E"]
+    }
+  ],
+
+  "options_page": "options.html",
+
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "img/icon.png",
+    "default_title": "PixelGuide"
+  }
+}

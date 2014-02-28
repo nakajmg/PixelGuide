@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title></title>
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/fontello-embedded.css">
+  <link rel="stylesheet" href="css/rulersguides.css">
+  <link rel="stylesheet" href="css/popup.css">
+  <link rel="stylesheet" href="css/content.css">
+</head>
+<body>
+
+<header class="pxg-header-title">
+  <h1 class="pxg-header-icon">PixelGuide</h1>
+</header>
+<form id="pxg-form" class="pxg-form">
+  <section>
+    <h2 class="pxg-head pxg-head-toggle"><i class="fa fa-arrows-h"></i></h2>
+    <div title="Toggle All" class="pxg-all-toggle pxg-icon">All</div>
+    <div title="Toggle Guide" class="pxg-guides-toggle pxg-icon">Guide</div>
+    <div title="Toggle Ruler" class="pxg-rulers-toggle pxg-icon">Ruler</div>
+    <div title="Toggle Grid" class="pxg-detailedInfo-toggle pxg-icon">Info</div>
+    <!-- <div class="pxg-all-show pxg-icon"></div> -->
+    <!-- <div class="pxg-all-hide pxg-icon"></div> -->
+  </section>
+  <section class="pxg-guides">
+  <h2 class="pxg-head">Guide</h2>
+    <section class="pxg-picker">
+      <div class="pxg-picker-items">
+        <input type="radio" name="color" id="picker-red" value="red">
+          <label for="picker-red"><div class="pxg-picker-item is-red"></div></label>
+        <input type="radio" name="color" id="picker-blue" value="blue">
+          <label for="picker-blue"><div class="pxg-picker-item is-blue"></div></label>
+        <input type="radio" name="color" id="picker-yellow" value="yellow">
+          <label for="picker-yellow"><div class="pxg-picker-item is-yellow"></div></label>
+        <input type="radio" name="color" id="picker-green" value="green">
+          <label for="picker-green"><div class="pxg-picker-item is-green"></div></label>
+<!--         <input type="radio" name="color" id="picker-purple" value="purple">
+          <label for="picker-purple"><div class="pxg-picker-item is-purple"></div></label> -->
+        <input type="radio" name="color" id="picker-orange" value="orange">
+          <label for="picker-orange"><div class="pxg-picker-item is-orange"></div></label>
+        <input type="radio" name="color" id="picker-white" value="white">
+          <label for="picker-white"><div class="pxg-picker-item is-white"></div></label>
+        <input type="radio" name="color" id="picker-black" value="black">
+          <label for="picker-black"><div class="pxg-picker-item is-black"></div></label>
+      </div>
+    </section>
+    <div title="Snap Dom" class="pxg-all-snapdom pxg-icon">Snap</div>
+    <div title="Delete Guide" class="pxg-guides-delete pxg-icon">Delete</div>
+    <div title="Save Guide" class="pxg-grid-save pxg-icon">Save</div>
+    <div title="Open Guide " class="pxg-grid-open pxg-icon">Open</div>
+
+  </section>
+  <section>
+    <h2 class="pxg-head">Rulers</h2>
+
+    <div class="pxg-rulersLock-toggle pxg-icon"><i class="fa fa-arrows-h"></i></div>
+  </section>
+  <section class="pxg-cheat">
+    <input type="checkbox" id="pxg-cheatseet-toggle">
+    <label for="pxg-cheatseet-toggle">
+      <h2 class="pxg-head pxg-cheatseet">ShortCut CheatSeet</h2>
+    </label>
+    <div class="pxg-cheat-items">
+      <div class="pxg-cheat-item">
+        <p>Toggle rulers and guides
+        <p><span>Ctrl</span> + <span>Alt</span> + <span>A</span>
+      </div>
+      <div class="pxg-cheat-item">
+        <p>Toggle rulers
+        <p><span>Ctrl</span> + <span>Alt</span> + <span>R</span>
+      </div>
+      <div class="pxg-cheat-item">
+        <p>Toggle guides
+        <p><span>Ctrl</span> + <span>Alt</span> + <span>G</span>
+      </div>
+      <div class="pxg-cheat-item">
+        <p>Lock/Unlock rulers
+        <p><span>Ctrl</span> + <span>Alt</span> + <span>L</span>
+      </div>
+      <div class="pxg-cheat-item">
+        <p>Toggle detailed info
+        <p><span>Ctrl</span> + <span>Alt</span> + <span>I</span>
+      </div>
+      <div class="pxg-cheat-item">
+        <p>Clear all guides
+        <p><span>Ctrl</span> + <span>Alt</span> + <span>D</span>
+      </div>
+      <div class="pxg-cheat-item">
+        <p>Save grid
+        <p><span>Ctrl</span> + <span>Alt</span> + <span>S</span>
+      </div>
+      <div class="pxg-cheat-item">
+        <p>Open grid
+        <p><span>Ctrl</span> + <span>Alt</span> + <span>O</span>
+      </div>
+      <div class="pxg-cheat-item">
+        <p>Open snap to dialog
+        <p><span>Ctrl</span> + <span>Alt</span> + <span>C</span>
+      </div>
+      <div class="pxg-cheat-item">
+        <p>Toggle snap to DOM
+        <p><span>Ctrl</span> + <span>Alt</span> + <span>E</span>
+      </div>
+    </div>
+  </section>
+
+</form>
+
+  <script src="js/lib/jquery-1.11.0.min.js"></script>
+  <!--
+  <script src="js/lib/Event.js"></script>
+  <script src="js/lib/Dragdrop.js"></script>
+  <script src="js/lib/RulersGuides.js"></script>
+  <script src="js/content.js"></script>
+   -->
+
+  <script src="js/popup.js"></script>
+</body>
+</html>
