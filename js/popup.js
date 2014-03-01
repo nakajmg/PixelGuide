@@ -55,4 +55,9 @@
   $(".pxg-all-show").on("click", function() { emitEvent("show:all"); });
   $(".pxg-all-hide").on("click", function() { emitEvent("hide:all"); });
   $(".pxg-all-snapdom").on("click", function() { emitEvent("snap:dom") });
+  $("#pxg-form-snapto").on("submit", function(e) {
+    e.preventDefault();
+    emitEvent("snap:to", $("#pxg-form-snapto").formData());
+  });
+  $(".pxg-all-snapreset").on("click", function() { emitEvent("snap:reset", { x:0,y:0 }); });
 })();

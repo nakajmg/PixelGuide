@@ -43,7 +43,10 @@ $(function() {
     .on("toggle:detailedInfo", function(e, options) { rgmediator.trigger("showDetailedInfo"); })
     .on("snap:dom", function(e, options) { rgmediator.trigger("snapDom"); })
     .on("resize", function(e, options) { rgmediator.trigger("resize"); })
-
+    .on("snap:to", function(e, options) { rgmediator.trigger("snapTo", options); })
+    .on("snap:reset", function(e, options) {
+      rgmediator.trigger("snapRest", options);
+    })
 });
 
 

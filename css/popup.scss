@@ -88,11 +88,13 @@ body{
   text-align: center;
   color: rgba(85,85,85,1);
   border: 1px solid rgba(85,85,85,.5);
+  background-color: transparent;
   // box-shadow: 1px 1px 0 rgba(0,0,0,.1);
   cursor: pointer;
   border-radius: 1px;
   min-width: 56px;
   box-sizing: border-box;
+  vertical-align: middle;
   &:hover{
     color: $color-blue;
     border-color: $color-blue;
@@ -368,5 +370,51 @@ $color-head: rgba(0,0,0,.5);
     transition: height 100ms linear;
     height: auto;
     border-radius: 2px;
+  }
+
+}
+.pxg-form-snapto{
+  margin: 10px auto;
+  font-size: 12px;
+  input[type="number"]{
+    -webkit-appearance: none;
+    border: none;
+    width: 37px;
+    padding-left: 0px;
+    // height: 20px;
+    font-size: 10px;
+    background-color: transparent;
+    outline:none;
+  }
+  .pxg-all-snapto{
+    width: 90px;
+    text-align: left;
+    &:before{
+      @extend %fa;
+      content: "\f053";
+      content: "\f100";
+      font-size: 10px;
+      margin-left: 8px;
+      margin-right: 5px;
+    }
+  }
+  .pxg-all-snapreset{
+    min-width: initial;
+    width: 27px;
+    &:before{
+      @extend %fa;
+      content: "\f0e2";
+      font-size: 12px;
+    }
+  }
+  .pxg-form-snaptoX, .pxg-form-snaptoY{
+    box-shadow: inset 1px 1px 0 rgba(0,0,0,.1);
+    background-color:  #FFF;
+    // border: 1px solid rgba(85, 85, 85, 0.5);
+    padding: 5px 4px;
+    // line-height: 22px;
+    // display: inline-block;
+    vertical-align: middle;
+    font-size: 10px;
   }
 }
