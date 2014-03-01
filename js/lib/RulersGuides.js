@@ -738,7 +738,7 @@ var RulersGuides = function (evt, dragdrop) {
 
                 menuList.appendChild(menuItems);
 
-                body.appendChild(menuBtn);
+                // body.appendChild(menuBtn);
                 body.appendChild(menuList);
 
                 evt.attach('mousedown', menuBtn, function () {
@@ -1218,4 +1218,9 @@ var RulersGuides = function (evt, dragdrop) {
             }, 100);
         }
       })
+      .on("snapTo", function(e, data) {
+        xSnap = parseInt(data.x, 10);
+        ySnap = parseInt(data.y, 10);
+      })
+      .on("snapRest", function(e, fata) { xSnap = 0; ySnap = 0; })
 };
