@@ -75,35 +75,34 @@ var RulersGuides = function (evt, dragdrop) {
         domDimensions = [],
         resizeTimer = null,
         snapDom     = 0,
-        // cssText     = 'html,body{margin:0;padding:0}.rg-overlay{position:absolute;top:0;left:0;overflow:hidden}.guide{position:absolute;top:0;left:0;z-index:9991;font-size:0}.guide.v{width:1px;height:7000px;border-right:solid 1px #00f;cursor:col-resize}.guide.h{width:3000px;height:1px;border-bottom:solid 1px #00f;cursor:row-resize}.info{width:50px;height:25px;line-height:25px;text-align:center;position:relative;font-size:13px;background-color:#eee;border:solid 1px #ccc;color:#000}.guide.v .info{left:2px}.guide.h .info{top:2px}.unselectable{-moz-user-select:-moz-none;-khtml-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none}.ruler{background-color:#ccc;position:absolute;top:0;left:0;z-index:9990}.ruler .label{font:12px Arial;color:#000}.ruler,.ruler span{font-size:0}.ruler.h{width:3000px;left:-1px;padding-top:14px;border-bottom:solid 1px #000}.ruler.v{height:7000px;top:-1px;padding-left:16px;width:25px;border-right:solid 1px #000}.ruler.h span{border-left:solid 1px #999;height:9px;width:1px;vertical-align:bottom;display:inline-block;*display:inline;zoom:1}.ruler.v span{display:block;margin-left:auto;margin-right:0;border-top:solid 1px #999;width:9px;height:1px}.ruler.v span.major{border-top:solid 1px #000;width:13px}.ruler.v span.milestone{position:relative;border-top:solid 1px #000;width:17px}.ruler.v span.label{border:0;font-size:9px;position:absolute;text-align:center;width:9px}.ruler.h span.major{border-left:solid 1px #000;height:13px}.ruler.h span.milestone{position:relative;border-left:solid 1px #000;height:17px}.ruler.h span.label{border:0;font-size:9px;position:absolute;text-align:center;top:-14px;width:9px}.ruler.h .l10{left:-5px}.ruler.h .l100{left:-7px}.ruler.h .l1000{left:-10px}.ruler.v .l10,.ruler.v .l100,.ruler.v .l1000{top:-7px}.ruler.v .l10{left:-12px}.ruler.v .l100{left:-17px}.ruler.v .l1000{left:-23px}.menu-btn{position:fixed;left:3px;top:2px;line-height:9px;z-index:9998;width:20px;height:20px;background-color:red;opacity:.5;font-size:20px;text-align:left;color:#fff;font-weight:700;cursor:pointer;border-radius:2px}.rg-menu{position:fixed;top:22px;left:3px;padding:0;margin:0;list-style:0;display:none;font:13px Arial;z-index:9999;box-shadow:2px 2px 10px #ccc}.rg-menu li{text-align:left;border-bottom:solid 1px #999;padding:0}.rg-menu a{background-color:#777;display:block;padding:5px;text-decoration:none;color:#fff;line-height:18px}.rg-menu a:hover,.rg-menu a.selected{color:#fff;background-color:#3b94ec}.rg-menu a.disabled{color:#ccc}.rg-menu .desc{display:inline-block;width:170px}.dialog{position:fixed;background-color:#777;z-index:9999;color:#fff;font-size:13px;display:none;box-shadow:2px 2px 10px #ccc}.dialog button{border:0;color:#333;cursor:pointer;background-color:#eaeaea;background-image:linear-gradient(#fafafa,#eaeaea);background-repeat:repeat-x;border-radius:3px;text-shadow:0 1px 0 rgba(255,255,255,.9)}.dialog input,.dialog select,.dialog button{font-size:13px;margin:3px;padding:3px}.dialog .title-bar{padding:5px;background-color:#aaa;font-weight:700}.dialog .wrapper{padding:10px}.open-dialog select,.open-dialog button{float:left;display:block}.open-dialog .ok-btn,.open-dialog .cancel-btn{margin:10px 3px}.open-dialog .ok-btn{clear:both}.snap-dialog label{font-weight:700;padding:3px}.snap-dialog .ok-btn{margin-left:18px}.snap-dialog .ok-btn,.snap-dialog .cancel-btn{margin-top:10px}.snap-dialog .rg-y-label{margin-left:10px}#rg-x-snap,#rg-y-snap{width:50px}.info-block-wrapper{position:absolute;z-index:9989}.info-block{position:absolute;text-align:left}.info-block.even{background:0 0;background-color:rgba(0,0,255,.2);-ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#330000FF, endColorstr=#330000FF);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#330000FF, endColorstr=#330000FF);zoom:1}.info-block.odd{background:0 0;background-color:rgba(255,0,0,.2);-ms-filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#33FF0000, endColorstr=#33FF0000);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#33FF0000, endColorstr=#33FF0000);zoom:1}.info-block-txt{padding:5px;display:inline-block;vertical-align:top;background-color:#777;color:#fff;font-size:13px;*display:inline;zoom:1}',
         cssText = "",
         Ruler       = function (type, size) {
-            var ruler       = document.createElement('div'),
+            var ruler       = document.createElement('x-ruler'),
                 i           = 0,
-                span        = document.createElement('span'),
+                span        = document.createElement('x-grid'),
                 label       = null,
                 labelTxt    = null,
                 spanFrag    = document.createDocumentFragment(),
                 cnt         = Math.floor(size / 2);
 
-            ruler.className = 'ruler ' + type + ' unselectable';
+            ruler.className = 'pxg-ruler pxg-ruler-' + type + ' unselectable';
 
             for (i; i < cnt; i = i + 1) {
                 span = span.cloneNode(false);
 
                 if (i % 25 === 0) {
-                    span.className = 'milestone';
+                    span.className = 'pxg-milestone';
 
                     if (i > 0) {
                         label = span.cloneNode(false);
-                        label.className = 'label';
+                        label.className = 'pxg-label';
 
                         if (i < 50) {
-                            label.className += ' l10';
+                            label.className += ' pxg-l10';
                         } else if (i >= 50 && i < 500) {
-                            label.className += ' l100';
+                            label.className += ' pxg-l100';
                         } else if (i >= 500) {
-                            label.className += ' l1000';
+                            label.className += ' pxg-l1000';
                         }
 
                         labelTxt = document.createTextNode(i * 2);
@@ -111,9 +110,9 @@ var RulersGuides = function (evt, dragdrop) {
                         span.appendChild(label);
                     }
 
-                    span.className = 'milestone';
+                    span.className = 'pxg-milestone';
                 } else if (i % 5 === 0) {
-                    span.className = 'major';
+                    span.className = 'pxg-major';
                 } else {
                     span.className = '';
                     span.removeAttribute('class');
@@ -168,8 +167,8 @@ var RulersGuides = function (evt, dragdrop) {
 
             if (
                 rulerStatus === 1 && guideStatus === 1 && (
-                    (guide.className === 'guide h draggable' && guide.offsetTop < hBound + scrollPos[0]) ||
-                    (guide.className === 'guide v draggable' && guide.offsetLeft < vBound + scrollPos[1])
+                    (guide.className === 'pxg-guide pxg-guide-h draggable' && guide.offsetTop < hBound + scrollPos[0]) ||
+                    (guide.className === 'pxg-guide pxg-guide-v draggable' && guide.offsetLeft < vBound + scrollPos[1])
                 )
             ) {
                 wrapper.removeChild(guide);
@@ -248,7 +247,7 @@ var RulersGuides = function (evt, dragdrop) {
 
                 for (guideId in grid) {
                     if (grid.hasOwnProperty(guideId)) {
-                        guideElem = document.createElement('div');
+                        guideElem = document.createElement('x-guide');
                         guideElem.id = guideId;
                         guideElem.className = grid[guideId].cssClass;
                         guideElem.style.cssText = grid[guideId].style;
@@ -303,13 +302,13 @@ var RulersGuides = function (evt, dragdrop) {
 
             this.render = function () {
                 if (dialog === null) {
-                    dialog = document.createElement('div');
+                    dialog = document.createElement('x-dialog');
                     select = renderSelect(0);
 
                     var text = document.createTextNode(''),
-                        titleBar = dialog.cloneNode(false),
-                        dialogWrapper = dialog.cloneNode(false),
-                        okBtn = document.createElement('button'),
+                        titleBar = document.createElement('x-dialogtitle'),
+                        dialogWrapper = document.createElement('x-dialogcontent'),
+                        okBtn = document.createElement('x-button'),
                         cancelBtn = okBtn.cloneNode(false),
                         delBtn = okBtn.cloneNode(false),
                         titleBarTxt = text.cloneNode(false),
@@ -322,13 +321,13 @@ var RulersGuides = function (evt, dragdrop) {
                     cancelBtnTxt.nodeValue = 'Cancel';
                     // delBtnTxt.nodeValue = 'Delete';
 
-                    dialog.className = 'dialog open-dialog';
-                    titleBar.className = 'title-bar';
-                    dialogWrapper.className = 'wrapper';
+                    dialog.className = 'pxg-dialog pxg-dialog-open';
+                    titleBar.className = 'pxg-dialog-title';
+                    dialogWrapper.className = 'pxg-dialog-content';
 
-                    okBtn.className = 'ok-btn';
-                    cancelBtn.className = 'cancel-btn';
-                    delBtn.className = 'del-btn';
+                    okBtn.className = 'pxg-dialog-okBtn';
+                    cancelBtn.className = 'pxg-dialog-cancelBtn';
+                    delBtn.className = 'pxg-dialog-deleteBtn';
 
                     titleBar.appendChild(titleBarTxt);
                     okBtn.appendChild(okBtnTxt);
@@ -446,10 +445,10 @@ var RulersGuides = function (evt, dragdrop) {
                 hGuides = [],
                 vGuides = [],
                 scrollSize = getScrollSize(),
-                infoBlockWrapper = document.createElement('div'),
+                infoBlockWrapper = document.createElement('x-info'),
                 infoFrag = document.createDocumentFragment(),
-                infoBlock = infoBlockWrapper.cloneNode(false),
-                infoBlockTxt = infoBlockWrapper.cloneNode(false),
+                infoBlock = document.createElement('x-infoblock'),
+                infoBlockTxt = document.createElement('x-infotext'),
                 infoData1 = document.createTextNode(''),
                 infoData2 = infoData1.cloneNode(false),
                 text = '',
@@ -489,16 +488,16 @@ var RulersGuides = function (evt, dragdrop) {
                     infoData2 = infoData2.cloneNode(false);
                     br = br.cloneNode();
 
-                    infoBlockWrapper.className = 'info-block-wrapper';
-                    infoBlock.className = 'info-block';
-                    infoBlockTxt.className = 'info-block-txt';
+                    infoBlockWrapper.className = 'pxg-info';
+                    infoBlock.className = 'pxg-info-block';
+                    infoBlockTxt.className = 'pxg-info-txt';
 
                     infoBlock.className += (
                         (i % 2 !== 0 && j % 2 !== 0) ||
                         (i % 2 === 0 && j % 2 === 0)
                     )
-                        ? ' even'
-                        : ' odd';
+                        ? ' pxg-info-even'
+                        : ' pxg-info-odd';
 
                     infoBlock.style.top = hGuides[i] + 'px';
                     infoBlock.style.left = vGuides[j] + 'px';
@@ -646,7 +645,7 @@ var RulersGuides = function (evt, dragdrop) {
                 var menuItems = document.createDocumentFragment(),
                     li = document.createElement('li'),
                     liLink = document.createElement('a'),
-                    liDesc = document.createElement('span'),
+                    liDesc = document.createElement('x-span'),
                     liHotKey = liDesc.cloneNode(false),
                     liDescTxt = document.createTextNode(''),
                     liHotKeyTxt = liDescTxt.cloneNode(false);
@@ -739,7 +738,7 @@ var RulersGuides = function (evt, dragdrop) {
                 menuList.appendChild(menuItems);
 
                 // body.appendChild(menuBtn);
-                body.appendChild(menuList);
+                // body.appendChild(menuList);
 
                 evt.attach('mousedown', menuBtn, function () {
                     toggles.rulers.txt.nodeValue = (rulerStatus === 1)
@@ -792,17 +791,17 @@ var RulersGuides = function (evt, dragdrop) {
 
             this.render = function () {
                 if (dialog === null) {
-                    dialog = document.createElement('div');
+                    dialog = document.createElement('x-dialog');
                     xInput = document.createElement('input');
                     yInput = xInput.cloneNode(false);
 
                     var text = document.createTextNode(''),
-                        okBtn = document.createElement('button'),
-                        xLabel = document.createElement('label'),
-                        titleBar = dialog.cloneNode(false),
-                        dialogWrapper = dialog.cloneNode(false),
-                        inputWrapper = dialog.cloneNode(false),
-                        btnWrapper = dialog.cloneNode(false),
+                        okBtn = document.createElement('x-button'),
+                        xLabel = document.createElement('x-label'),
+                        titleBar = document.createElement('x-dialogtitle'),
+                        dialogWrapper = document.createElement('x-dialogcontent'),
+                        inputWrapper = document.createElement('x-dialoginputs'),
+                        btnWrapper = document.createElement('x-dialogbtns'),
                         resetBtn = okBtn.cloneNode(false),
                         cancelBtn = okBtn.cloneNode(false),
                         yLabel = xLabel.cloneNode(false),
@@ -820,27 +819,27 @@ var RulersGuides = function (evt, dragdrop) {
                     resetBtnTxt.nodeValue = 'Reset';
                     cancelBtnTxt.nodeValue = 'Cancel';
 
-                    dialog.className = 'dialog snap-dialog';
-                    titleBar.className = 'title-bar';
-                    dialogWrapper.className = 'wrapper';
+                    dialog.className = 'pxg-dialog pxg-dialog-snap';
+                    titleBar.className = 'pxg-dialog-title';
+                    dialogWrapper.className = 'pxg-dialog-content';
 
-                    xLabel.className = 'rg-x-label';
-                    xLabel.setAttribute('for', 'rg-x-snap');
+                    xLabel.className = 'pxg-label-x';
+                    // xLabel.setAttribute('for', 'rg-x-snap');
 
-                    yLabel.className = 'rg-y-label';
-                    yLabel.setAttribute('for', 'rg-y-snap');
+                    yLabel.className = 'pxg-label-y';
+                    // yLabel.setAttribute('for', 'rg-y-snap');
 
                     xInput.setAttribute('type', 'number');
                     xInput.value = '100';
-                    xInput.id = 'rg-x-snap';
+                    xInput.id = 'pxg-snap-x';
 
                     xInput.setAttribute('type', 'number');
                     yInput.value = '100';
-                    yInput.id = 'rg-y-snap';
+                    yInput.id = 'pxg-snap-y';
 
-                    okBtn.className = 'ok-btn';
-                    resetBtn.className = 'reset-btn';
-                    cancelBtn.className = 'cancel-btn';
+                    okBtn.className = 'pxg-dialog-okBtn';
+                    resetBtn.className = 'pxg-dialog-resetBtn';
+                    cancelBtn.className = 'pxg-dialog-cancelBtn';
 
                     titleBar.appendChild(titleBarTxt);
 
@@ -925,11 +924,11 @@ var RulersGuides = function (evt, dragdrop) {
                 hRuler = new Ruler('h', 3000);
                 vRuler = new Ruler('v', 7000);
 
-                wrapper = document.createElement('div');
-                gInfoBlockWrapper = wrapper.cloneNode(false);
+                wrapper = document.createElement('x-pxg');
+                gInfoBlockWrapper = document.createElement('x-info');
 
-                wrapper.className = 'rg-overlay';
-                gInfoBlockWrapper.className = 'info-block-wrapper';
+                wrapper.className = 'pxg-overlay';
+                gInfoBlockWrapper.className = 'pxg-info';
 
                 wrapper.style.width = (size[0]) + 'px';
                 wrapper.style.height = (size[1]) + 'px';
@@ -1004,26 +1003,27 @@ var RulersGuides = function (evt, dragdrop) {
                 (y > hBound && x < vBound)
             ) && rulerStatus === 1
         ) {
-            guide = document.createElement('div');
-            guideInfo = guide.cloneNode(false);
+            guide = document.createElement('x-guide');
+            guideInfo = document.createElement('x-guideinfo');
+            // guideInfo = guide.cloneNode(false);
             guideInfoText = document.createTextNode('');
 
             gUid = 'guide-' + guidesCnt;
 
-            guideInfo.className = 'info';
+            guideInfo.className = 'pxg-guide-info';
 
             guideInfo.appendChild(guideInfoText);
             guide.appendChild(guideInfo);
 
             if (x > vBound && y < hBound) {
-                guide.className = 'guide h draggable';
+                guide.className = 'pxg-guide pxg-guide-h draggable';
                 guide.style.top = (e.clientY + scrollPos[0]) + 'px';
                 guideInfo.style.left = (x + scrollPos[1] + 10) + 'px';
                 guide.type = 'h';
                 snap = ySnap;
                 mode = 2;
             } else if (y > hBound && x < vBound) {
-                guide.className = 'guide v draggable';
+                guide.className = 'pxg-guide pxg-guide-v draggable';
                 guide.style.left = (x + scrollPos[1]) + 'px';
                 guideInfo.style.top = ((y + scrollPos[0]) - 35) + 'px';
                 guide.type = 'v';
@@ -1090,9 +1090,9 @@ var RulersGuides = function (evt, dragdrop) {
                 },
                 onstop: function (elem) {
                     elem.over = evt.attach('mouseover', elem, function (e, src) {
-                        if (src.className === 'guide v draggable') {
+                        if (src.className === 'pxg-guide pxg-guide-v draggable') {
                             elem.info.style.top = ((e.clientY + scrollPos[0]) - 35) + 'px';
-                        } else if (src.className === 'guide h draggable') {
+                        } else if (src.className === 'pxg-guide pxg-guide-h draggable') {
                             elem.info.style.left = (e.clientX + scrollPos[1] + 10) + 'px';
                         }
 
@@ -1202,22 +1202,9 @@ var RulersGuides = function (evt, dragdrop) {
         snapDom = 1 - snapDom;
         if (snapDom === 1) { domDimensions = calculateDomDimensions(); }
       })
-      .on("showAll", function(e, data) { $(".rg-overlay").show(); $(menuBtn).show(); })
-      .on("hideAll", function(e, data) { $(".rg-overlay").hide(); $(menuBtn).hide(); })
-      .on("toggleAll", function(e, data) { $(".rg-overlay").is(":visible") ? $(".rg-overlay").hide() : $(".rg-overlay").show() })
-      .on("resize", function(e, data) {
-        var size = getWindowSize();
-        wrapper.style.width = size[0] + 'px';
-        wrapper.style.height = size[1] + 'px';
-        if (resizeTimer !== null) {
-            window.clearTimeout(resizeTimer);
-        }
-        if (snapDom === 1) {
-            resizeTimer = window.setTimeout(function () {
-                domDimensions = calculateDomDimensions();
-            }, 100);
-        }
-      })
+      .on("showAll", function(e, data) { $(".pxg-overlay").show(); $(menuBtn).show(); })
+      .on("hideAll", function(e, data) { $(".pxg-overlay").hide(); $(menuBtn).hide(); })
+      .on("toggleAll", function(e, data) { $(".pxg-overlay").is(":visible") ? $(".pxg-overlay").hide() : $(".pxg-overlay").show() })
       .on("snapTo", function(e, data) {
         xSnap = parseInt(data.x, 10);
         ySnap = parseInt(data.y, 10);
