@@ -4,7 +4,7 @@
       var background = chrome.extension.getBackgroundPage();
       emitEvent("init");
     }else{
-      // emitEvent("init");
+      emitEvent("init");
     }
 
     setTimeout(function(){
