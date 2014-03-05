@@ -13,9 +13,9 @@ $(function() {
   function changeGuideColor(options) {
     if(!options.color) return;
 
-    $(".rg-overlay").removeClass (function (index, css) {
-      return (css.match (/\bpg-color-\S+/g) || []).join(' ');
-    }).addClass("pg-color-" + options.color);
+    $(".pxg-overlay").removeClass (function (index, css) {
+      return (css.match (/\bpxg-color-\S+/g) || []).join(' ');
+    }).addClass("pxg-color-" + options.color);
   }
 
   if(chrome.extension){
@@ -23,9 +23,6 @@ $(function() {
       pgmediator.trigger(request.event, request.options);
     });
   }
-
-  var resizeDebounced = $.debounce(500, function() { pgmediator.trigger("resize"); });
-  $(window).on("resize", function() { resizeDebounced(); });
 
   pgmediator = $("<div>")
     .on("init", function(e, options) { init(); })
@@ -42,7 +39,6 @@ $(function() {
     .on("open:gridDialog", function(e, options) { rgmediator.trigger("openGridDialog"); })
     .on("toggle:detailedInfo", function(e, options) { rgmediator.trigger("showDetailedInfo"); })
     .on("snap:dom", function(e, options) { rgmediator.trigger("snapDom"); })
-    .on("resize", function(e, options) { rgmediator.trigger("resize"); })
     .on("snap:to", function(e, options) { rgmediator.trigger("snapTo", options); })
     .on("snap:reset", function(e, options) {
       rgmediator.trigger("snapRest", options);

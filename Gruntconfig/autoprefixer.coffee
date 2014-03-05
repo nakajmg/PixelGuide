@@ -7,4 +7,5 @@ module.exports =
   dist:
     # src: ["./css/content.css"]
     # src: ["./css/popup.css"]
-    src: ["./css/options.css"]
+    # src: ["./css/options.css"]
+    src: ["./css/pixelguide.css"]

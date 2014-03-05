@@ -1,7 +1,7 @@
 ### watch ###
 module.exports =
   sass:
-    files: ["./css/*scss"]
+    files: ["./css/**/*.scss"]
     tasks: ["sass", "autoprefixer"]
     options:
       livereload: true

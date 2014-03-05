@@ -1,0 +1,77 @@
+$color-red: #DC143C;
+$color-green: #228B22;
+$color-blue: #1E90FF;
+$color-yellow: #FFD700;
+$color-purple: #800080;
+$color-orange: #FF8C00;
+$color-white: #FFF;
+$color-black: #333;
+
+%fa{
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
+}
+%fontello{
+  font-family: "fontello";
+}
+
+.pxg-guide-h, .pxg-guide-v{
+  border-color: $color-red;
+}
+.pxg-guide-h, .pxg-guide-v{
+  .pxg-color-red &{ border-color: $color-red; }
+  .pxg-color-blue &{ border-color: $color-blue; }
+  .pxg-color-green &{ border-color: $color-green; }
+  .pxg-color-yellow &{ border-color: $color-yellow; }
+  .pxg-color-purple &{ border-color: $color-purple; }
+  .pxg-color-orange &{ border-color: $color-orange; }
+  .pxg-color-white &{ border-color: $color-white; }
+  .pxg-color-black &{ border-color: $color-black; }
+}
+.pxg-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+
+
+  .pxg-btn{
+    line-height: 25px;
+    padding: 0 5px;
+    font-size: 12px;
+    display: inline-block;
+    text-align: center;
+    color: $color-black;
+    border: 1px solid $color-black;
+    box-shadow: 1px 1px 0 rgba(0,0,0,.1);
+    cursor: pointer;
+    &:hover{
+      color: $color-red;
+      border-color: $color-red;
+    }
+    &:active{
+      box-shadow: inset 1px 1px 2px rgba(0,0,0,.2);
+      &:before, &:after{
+      }
+    }
+    &:before,&:after{
+    font-size: 18px;
+      @extend %fa;
+      border:none;
+    }
+  }
+
+}
+
+.unselectable {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none
+}

@@ -4,7 +4,7 @@ module.exports =
     files: [
       expand: true
       cwd: "./css/"
-      src: ["*.scss"]
+      src: ["*.scss","./pxguide/*.scss"]
       dest: "./css/"
       ext: ".css"
     ]

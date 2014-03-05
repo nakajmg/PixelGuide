@@ -1,0 +1,263 @@
+%fa{
+  display: inline-block;
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  vertical-align: middle;
+}
+.pxg-dialog {
+  position: fixed;
+  background-color: #F9F9F9;
+  color: #555;
+  font-family:"Lucida Grande", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "Meiryo", "メイリオ", "sans-serif";
+
+  width: 250px;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 1px;
+  z-index: 9999;
+  font-size: 12px;
+  display: none;
+
+  .pxg-dialog-title {
+    display: block;
+    background-color: #555;
+    color: #FFF;
+    padding: 5px;
+    font-weight: normal;
+    font-size: 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0px 1px 0 rgba(0,0,0,.1);
+    &:before{
+      @extend %fontello;
+      content: "\e800";
+      margin-right: 5px;
+    }
+  }
+
+  .pxg-dialog-content {
+    display: block;
+    padding: 10px;
+  }
+
+  &.pxg-dialog-snap {
+    // display: none;
+  }
+
+  &.pxg-dialog-open {
+    // display: none;
+    text-align: center;
+  }
+
+  x-dialoginputs,
+  .pxg-dialog-inputs {
+    display: block;
+    padding-bottom: 10px;
+    text-align: center;
+    input{
+      margin: 0 5px 0 2px;
+      width: 60px;
+      line-height: 20px;
+      vertical-align: middle;
+    }
+    x-label:after{
+      content: ":";
+    }
+  }
+  x-dialogbtns,
+  .pxg-dialog-btns {
+    display: block;
+    text-align: center;
+    color: #333;
+  }
+
+  x-button {
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    vertical-align: middle;
+    outline: none;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    text-shadow: -1px -1px 0 rgba(0,0,0,.1);
+    border: 1px solid rgba(85, 85, 85, 0.5);
+    background-color: transparent;
+    background-color: transparent;
+    border-radius: 2px;
+    display: inline-block;
+    min-width: 75px;
+    padding: 5px 10px;
+    &:hover{
+      cursor: pointer;
+      color: #3A9EFF;
+      border-color: #3A9EFF;
+    }
+    &:active{
+      color: #49A5FF;
+      border-color: #49A5FF;
+      box-shadow: -1px 0px 0 rgba(0,0,0,.1);
+    }
+    & + x-button {
+      margin-left: 5px;
+    }
+  }
+
+  .pxg-dialog-okBtn {
+
+  }
+  .pxg-dialog-resetBtn {
+    min-width: 25px;
+    padding: 0 5px;
+    font-size: 10px;
+    line-height: 24px;
+  }
+
+  .pxg-dialog-cancelBtn {
+
+  }
+
+  .pxg-dialog-deleteBtn {
+    min-width: 25px;
+    padding: 4px 8px;
+    &:before{
+      @extend %fa;
+      content: "\f014";
+      font-size: 16px;
+    }
+  }
+  select {
+    width: 180px;
+    margin-right: 5px;
+    margin-bottom: 15px;
+  }
+
+}
+
+// .open-dialog select,
+//   float: left;
+//   display: block
+// }
+
+// .open-dialog .ok-btn,
+// .open-dialog .cancel-btn {
+//   margin: 10px 3px
+// }
+
+// .open-dialog .ok-btn {
+//   clear: both
+// }
+
+// .snap-dialog label {
+//   font-weight: bold;
+//   padding: 3px
+// }
+
+// .snap-dialog .ok-btn {
+//   margin-left: 18px
+// }
+
+// .snap-dialog .ok-btn,
+// .snap-dialog .cancel-btn {
+//   margin-top: 10px
+// }
+
+// .snap-dialog .rg-y-label {
+//   margin-left: 10px
+// }
+
+// #rg-x-snap, #rg-y-snap {
+//   width: 50px
+// }
+
+// .dialog{
+//   background-color: #F9F9F9;
+//   color: #555;
+//   border: 1px solid #888;
+//   box-shadow: 1px 1px 1px rgba(0,0,0,.1);
+//   text-align: center;
+
+
+//   button{
+//   text-align: center;
+//   box-sizing: border-box;
+//   box-shadow: 1px 1px 0 rgba(0,0,0,.1);
+//   cursor: pointer;
+//   vertical-align: middle;
+//   outline: none;
+//   -webkit-tap-highlight-color: rgba(0,0,0,0);
+//   text-shadow: -1px -1px 0 rgba(0,0,0,.1);
+//   border: 1px solid $color-black;
+//   box-shadow: 1px 1px 0 rgba(0,0,0,.1);
+//   background-color: transparent;
+//   // border-radius: 2px;
+
+//   &:hover{
+//     color: $color-red;
+//     border-color: $color-red;
+//   }
+//   &:active{
+//     box-shadow: inset 1px 1px 2px rgba(0,0,0,.2);
+//     &:before, &:after{
+//     // font-size: 17px;
+//     }
+//   }
+
+//   &.del-btn{
+//     &:before{
+//     @extend %fa;
+//     content: "\f014";
+//     font-size: 18px;
+//     }
+//   }
+
+//   &.ok-btn, &.cancel-btn{
+//     margin: 5px 5px 15px 0;
+//   }
+
+//   }
+
+
+//   .title-bar{
+//   background-color: #333;
+//   color: #F9F9F9;
+//   }
+// }
+// .open-dialog{
+//   select{
+//   -webkit-appearance: none;
+//   width: 140px;
+//   line-height: 23px;
+//   background-color: transparent;
+//   color: #555;
+//   border-radius: 0;
+//   text-align: right;
+//   direction: rtl;
+//   padding-right: 10px;
+//   -webkit-box-sizing: border-box;
+//   box-sizing: border-box;
+//   border: 1px solid;
+//   position: relative;
+//   cursor: pointer;
+
+//   // border-right: 3px solid #333;
+//   }
+//   .wrapper{
+//   position: relative;
+//   }
+//   .wrapper:before{
+//   @extend %fa;
+//   position: absolute;
+//   content: "\f13a";
+//   display: block;
+//   width: 23px;
+//   line-height: 23px;
+//   left: 8px;
+//   top: 13px;
+//   border-right: 1px solid rgba(107, 107, 107, 1);
+//   z-index: 0;
+//   text-align: center;
+//   font-size: 20px;
+//   padding-left: 3px;
+//   }
+// }
