@@ -1,0 +1,35 @@
+.pxg-info {
+  position: absolute;
+  z-index: 9989;
+
+  .pxg-info-block {
+    position: absolute;
+    text-align: left;
+
+    &.pxg-info-even {
+      background: none;
+      background-color: rgba(0, 0, 255, 0.2);
+      -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#330000FF,endColorstr=#330000FF);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#330000FF,endColorstr=#330000FF);
+      zoom: 1;
+    }
+    &.pxg-info-odd {
+      background: none;
+      background-color: rgba(255, 0, 0, 0.2);
+      -ms-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#33FF0000,endColorstr=#33FF0000);
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#33FF0000,endColorstr=#33FF0000);
+      zoom: 1;
+    }
+  }
+  .pxg-info-txt {
+    padding: 3px;
+    display: inline-block;
+    vertical-align: top;
+    background-color: #777;
+    background-color: rgba(32, 32, 32, 0.9);
+    color: #fff;
+    font-size: 10px;
+    *display: inline;
+    zoom: 1;
+  }
+}

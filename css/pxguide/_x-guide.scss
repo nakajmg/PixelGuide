@@ -1,0 +1,45 @@
+x-guide {
+  diplay: block;
+}
+
+.pxg-guide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9991;
+  font-size: 0;
+
+  &.pxg-guide-v {
+    width: 1px;
+    height: 7000px;
+    border-right: solid 1px #00f;
+    cursor: col-resize;
+
+    .pxg-info {
+      left: 2px;
+    }
+  }
+
+  &.pxg-guide-h {
+    width: 3000px;
+    height: 1px;
+    border-bottom: solid 1px #00f;
+    cursor: row-resize;
+
+    .pxg-guide-info {
+      top: 2px;
+    }
+  }
+}
+
+.pxg-guide-info {
+  width: 50px;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  position: relative;
+  font-size: 13px;
+  background-color: #eee;
+  border: solid 1px #ccc;
+  color: #333;
+}
