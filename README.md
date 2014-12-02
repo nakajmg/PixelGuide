@@ -5,6 +5,10 @@ PixelGuide enables Photoshop-like rulers and guides interface on a web page.
 
 ## About
 
+## Install
+
+Download & install from [Chrome Webstore](https://chrome.google.com/webstore/detail/pixelguide/icgkmjbgjfhaofgfgolkeghoincaibhj?hl=ja)
+
 ## Usage
 
 Click Extension's icon.
